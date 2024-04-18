@@ -27,4 +27,4 @@
 4. 执行命令 `panda-cli create`, 并选择需要使用的模板名称, 即刻创建项目
 
 方式二
-npm exec github:mypanda/panda-cli create
+`npm exec github:mypanda/panda-cli create`
