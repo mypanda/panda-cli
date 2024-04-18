@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue2</title>
+  <link href="https://cdn.jsdelivr.net/npm/element-ui@2.15.14/lib/theme-chalk/index.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <p>Hello, {{msg}}</p>
+      <div>
+          <el-input placeholder="Please input" v-model="msg"></el-input>
+      </div>
+    </div>
+    <div>
+      <p>Count, {{count}}</p>
+      <div>
+        <el-button type="primary" @click="increment">increment</el-button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-router@3.6.5/dist/vue-router.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuex@3.6.2/dist/vuex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.14/lib/index.min.js"></script>
+  <script>
+    Vue.use(Vuex)
+
+    const store = new Vuex.Store({
+      state: {
+        count: 0
+      },
+      mutations: {
+        increment(state) {
+          state.count++
+        }
+      }
+    })
+
+    new Vue({
+      el: '#app',
+      store,
+      data() {
+        return {
+          msg: 'World'
+        }
+      },
+      computed: {
+        count() {
+          return this.$store.state.count
+        }
+      },
+      methods: {
+        increment () {
+          this.$store.commit('increment')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
