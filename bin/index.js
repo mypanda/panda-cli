@@ -27,7 +27,6 @@ program
     ]
     inquirer.prompt(questions).then(answers => {
       const template = tempaltesDirs.find(item => answers.template === item.value)
-      console.log(template)
       copyProject(template)
     })
   })
