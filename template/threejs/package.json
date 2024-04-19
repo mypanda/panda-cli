@@ -13,7 +13,7 @@
   "dependencies": {
     "dat.gui": "^0.7.9",
     "gsap": "^3.11.4",
-    "parcel-bundler": "^1.12.5",
+    "parcel": "latest",
     "three": "^0.150.1"
   }
 }
