@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue3</title>
+  <link href="https://cdn.jsdelivr.net/npm/element-plus@2.7.1/dist/index.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <p>Hello, {{msg}}</p>
+      <div>
+          <el-input placeholder="Please input" v-model="msg"></el-input>
+      </div>
+    </div>
+    <div>
+      <p>Count, {{count.count}}</p>
+      <div>
+        <el-button type="primary" @click="increment">increment</el-button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.4.23/dist/vue.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-router@4.3.2/dist/vue-router.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-demi@0.14.7/lib/index.iife.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pinia@2.1.7/dist/pinia.iife.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/element-plus@2.7.1/dist/index.full.min.js"></script>
+  <script>
+    const useCountStore = Pinia.defineStore('count', {
+      state: () => {
+        return {
+          count: 0
+        }
+      },
+      actions: {
+        increment(){
+          this.count ++
+        }
+      }
+    })
+    Vue
+      .createApp({
+        setup() {
+          const msg = Vue.ref('World')
+
+          const count = useCountStore()
+          // const increment = () => count.$path({count: count.count + 1})
+          const increment = () => count.increment()
+          return { msg, count, increment}
+        }
+      })
+      .use(Pinia.createPinia())
+      .use(ElementPlus)
+      .mount('#app')
+  </script>
+</body>
+
+</html>
