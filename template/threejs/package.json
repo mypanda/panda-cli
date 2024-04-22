@@ -1,19 +1,17 @@
 {
-  "name": "01-three-js-basic",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "threejs-journey-exercise",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "vite",
+    "build": "vite build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "devDependencies": {
+    "vite": "^4.0.4"
+  },
   "dependencies": {
-    "dat.gui": "^0.7.9",
-    "gsap": "^3.11.4",
-    "parcel": "latest",
-    "three": "^0.150.1"
+    "lil-gui": "^0.17.0",
+    "three": "^0.148.0"
   }
 }
